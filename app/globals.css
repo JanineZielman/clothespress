@@ -88,10 +88,16 @@ h1{
 }
 
 .main-logo.center-logo svg{
-  height: 180px!important;
+  height: 150px!important;
   width: auto;
 }
 
 .main-logo.center-logo svg path:nth-child(2){
   fill: white!important;
+}
+
+@media screen and (max-width: 600px) {
+  body, a.menu-link{
+    font-size: 18px;
+  }
 }

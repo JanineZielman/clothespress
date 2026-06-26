@@ -1,14 +1,25 @@
 import { createClient } from "@/prismicio";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
-import Image from "next/image";
+import BookImageGallery from "@/components/BookImageGallery";
 
 export default async function BookPage({ params }: PageProps<"/book/[uid]">) {
 	const { uid } = await params;
 	const client = createClient();
 	const book = await client.getByUID("book", uid);
 
-	const image = book.data.images?.[0]?.image;
+	const images = book.data.images
+		?.map((img) => {
+			const imageUrl = typeof img.image.url === "string" ? img.image.url : "";
+			const imageAlt = typeof img.image.alt === "string" ? img.image.alt : undefined;
+			return {
+				url: imageUrl,
+				alt: imageAlt,
+				width: img.image.dimensions?.width,
+				height: img.image.dimensions?.height,
+			};
+		})
+		.filter((img) => img.url !== "") || [];
 
 	return (
 		<div className="book-page">
@@ -17,17 +28,10 @@ export default async function BookPage({ params }: PageProps<"/book/[uid]">) {
 					{book.data.title}
 				</h1>
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-					{image?.url && (
-						<div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-							<Image
-								src={image.url}
-								alt={image.alt || book.data.title || "Book cover"}
-								fill
-								className="object-contain"
-								sizes="(max-width: 1024px) 100vw, 50vw"
-							/>
-						</div>
-					)}
+					<BookImageGallery
+						images={images}
+						title={typeof book.data.title === "string" ? book.data.title : ""}
+					/>
 					<div className="flex flex-col justify-center">
 
 						{book.data.description && (

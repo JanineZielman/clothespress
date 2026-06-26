@@ -41,7 +41,7 @@ export default function Logo() {
   // Prevent flash by not rendering until mounted
   if (!mounted) {
     return (
-      <a href="/" className={`fixed z-50 ${positionClass} opacity-0`}>
+      <a href="/" className={`main-logo fixed z-50 ${positionClass} opacity-0`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 321 138"
@@ -64,7 +64,7 @@ export default function Logo() {
   }
 
   return (
-    <a href="/" className={`fixed z-50 transition-all duration-700 ${positionClass}`}>
+    <a href="/" className={`main-logo fixed z-50 transition-all duration-700 ${positionClass}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 321 138"

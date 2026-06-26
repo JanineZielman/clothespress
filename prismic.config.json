@@ -2,12 +2,20 @@
   "repositoryName": "clothespress",
   "routes": [
     {
+      "type": "book",
+      "path": "/book/:uid"
+    },
+    {
       "type": "homepage",
       "path": "/"
     },
     {
       "type": "page",
       "path": "/:uid"
+    },
+    {
+      "type": "press",
+      "path": "/press/:uid"
     }
   ]
 }

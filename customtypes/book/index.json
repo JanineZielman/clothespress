@@ -1,6 +1,6 @@
 {
-  "id": "page",
-  "label": "Page",
+  "id": "book",
+  "label": "Book",
   "repeatable": true,
   "json": {
     "Main": {
@@ -24,6 +24,25 @@
           "placeholder": "",
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
           "allowTargetBlank": true
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {
+                  "height": 1080
+                },
+                "thumbnails": []
+              }
+            }
+          }
         }
       },
       "slices": {

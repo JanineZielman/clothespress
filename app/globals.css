@@ -86,3 +86,12 @@ svg{
 .info p{
   max-width: 800px;
 }
+
+.center-logo svg{
+  height: 180px!important;
+  width: auto;
+}
+
+.center-logo svg path:nth-child(3){
+  fill: white!important;
+}

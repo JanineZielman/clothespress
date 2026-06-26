@@ -47,3 +47,19 @@ body {
   border-bottom: 1px solid black;
   padding: 14px 0;
 }
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1{
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 60px;
+}

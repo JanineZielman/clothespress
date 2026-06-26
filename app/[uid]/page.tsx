@@ -1,4 +1,4 @@
-import { SliceZone } from "@prismicio/react";
+import { PrismicRichText, SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
@@ -9,7 +9,8 @@ export default async function Page({ params }: PageProps<"/[uid]">) {
 
 	return (
 		<div className="page">
-			<SliceZone slices={page.data.slices} components={components} />;
+			<PrismicRichText field={page.data.description} />
+			<SliceZone slices={page.data.slices} components={components} />
 		</div>
 	)
 }

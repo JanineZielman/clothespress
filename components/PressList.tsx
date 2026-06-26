@@ -12,7 +12,7 @@ export default async function PressList({ press }: PressListProps) {
 
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         <h2 className="section-title">
           Press
         </h2>
@@ -22,11 +22,11 @@ export default async function PressList({ press }: PressListProps) {
               key={item.id}
               className="press-item"
             >
-              <h3 className="text-xl font-semibold mb-2">
+              <p className=" mb-2">
                 {item.data.title}
-              </h3>
+              </p>
               {item.data.year && (
-                <p className="text-gray-600">{item.data.year}</p>
+                <p>{item.data.year}</p>
               )}
             </div>
           ))}

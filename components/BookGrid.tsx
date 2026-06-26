@@ -14,7 +14,7 @@ export default async function BookGrid({ books }: BookGridProps) {
 
   return (
     <section className="py-16 px-4 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         <h2 className="section-title">
           Books
         </h2>

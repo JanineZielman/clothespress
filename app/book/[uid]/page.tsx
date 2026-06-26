@@ -38,6 +38,9 @@ export default async function BookPage({ params }: PageProps<"/book/[uid]">) {
 						)}
 					</div>
 				</div>
+				<div className="info">
+					<PrismicRichText field={book.data.info} />
+				</div>
 			</div>
 		</div>
 	);

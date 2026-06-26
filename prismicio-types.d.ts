@@ -101,6 +101,17 @@ interface BookDocumentData {
 	images: prismic.GroupField<Simplify<BookDocumentDataImagesItem>>;
 	
 	/**
+	 * Info field in *Book*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: book.info
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	info: prismic.RichTextField;
+	
+	/**
 	 * Slice Zone field in *Book*
 	 *
 	 * - **Field Type**: Slice Zone

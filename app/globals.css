@@ -63,3 +63,26 @@ h1{
   font-weight: normal;
   margin-bottom: 60px;
 }
+
+svg{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  width: auto;
+  top: 0;
+}
+
+.book-page{
+  margin-top: 30px;
+}
+
+.info{
+  border-top: 1px solid black;
+  padding-top: 48px;
+  margin-top: 48px;
+}
+
+.info p{
+  max-width: 800px;
+}

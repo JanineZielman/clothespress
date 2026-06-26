@@ -7,5 +7,9 @@ export default async function Page({ params }: PageProps<"/[uid]">) {
 	const client = createClient();
 	const page = await client.getByUID("page", uid);
 
-	return <SliceZone slices={page.data.slices} components={components} />;
+	return (
+		<div className="page">
+			<SliceZone slices={page.data.slices} components={components} />;
+		</div>
+	)
 }

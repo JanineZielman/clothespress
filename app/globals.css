@@ -8,15 +8,27 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+}
+
+@font-face {
+  font-family: 'Inclusive Sans';
+  src: url('./InclusiveSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inclusive Sans';
+  src: url('./InclusiveSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
 }
 
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inclusive Sans', sans-serif;
   font-size: 24px;
 }
 
@@ -64,13 +76,12 @@ h1{
   margin-bottom: 60px;
 }
 
-.main-logo svg{
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 80px;
-  width: auto;
-  top: 0;
+.main-logo img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.7s ease;
 }
 
 .book-page{
@@ -87,13 +98,17 @@ h1{
   max-width: 800px;
 }
 
-.main-logo.center-logo svg{
-  height: 150px!important;
-  width: auto;
+.main-logo.center-logo img{
+  width: 100%!important;
+  height: 100%;
 }
 
-.main-logo.center-logo svg path:nth-child(2){
-  fill: white!important;
+.main-logo.logo-white img{
+  filter: brightness(0) invert(1);
+}
+
+.main-logo.logo-black img{
+  filter: none;
 }
 
 @media screen and (max-width: 600px) {

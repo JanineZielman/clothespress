@@ -1,0 +1,18 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": ""
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

@@ -1,12 +1,18 @@
 import { createClient } from "@/prismicio";
-import { PrismicRichText, SliceZone } from "@prismicio/react";
-import { components } from "@/slices";
+import { PrismicRichText } from "@prismicio/react";
 import BookImageGallery from "@/components/BookImageGallery";
 
 export default async function BookPage({ params }: PageProps<"/book/[uid]">) {
 	const { uid } = await params;
 	const client = createClient();
 	const book = await client.getByUID("book", uid);
+	const settings = await client.getSingle("settings").catch(() => null);
+
+	const bookTitle = typeof book.data.title === "string" ? book.data.title : "Book";
+	const orderEmail = typeof settings?.data.email === "string" ? settings.data.email.trim() : "";
+	const orderHref = orderEmail
+		? `mailto:${orderEmail}?subject=${encodeURIComponent(bookTitle)}`
+		: null;
 
 	const images = book.data.images
 		?.map((img) => {
@@ -30,7 +36,7 @@ export default async function BookPage({ params }: PageProps<"/book/[uid]">) {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 					<BookImageGallery
 						images={images}
-						title={typeof book.data.title === "string" ? book.data.title : ""}
+						title={bookTitle}
 					/>
 					<div className="flex flex-col justify-center">
 
@@ -42,6 +48,16 @@ export default async function BookPage({ params }: PageProps<"/book/[uid]">) {
 						)}
 					</div>
 				</div>
+				{orderHref && (
+					<div className="flex justify-end">
+						<a
+							href={orderHref}
+							className="button inline-flex items-center justify-center border border-black px-6 py-2 uppercase  hover:bg-black hover:text-white transition-colors"
+						>
+							Order
+						</a>
+					</div>
+				)}
 				<div className="info">
 					<PrismicRichText field={book.data.info} />
 				</div>

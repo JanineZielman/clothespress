@@ -426,7 +426,34 @@ interface PressDocumentData {
  */
 export type PressDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PressDocumentData>, "press", Lang>;
 
-export type AllDocumentTypes = BookDocument | HomepageDocument | PageDocument | PressDocument;
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+	/**
+	 * Email field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.email
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	email: prismic.KeyTextField;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
+
+export type AllDocumentTypes = BookDocument | HomepageDocument | PageDocument | PressDocument | SettingsDocument;
 
 declare module "@prismicio/client" {
 	interface CreateClient {
@@ -457,6 +484,8 @@ declare module "@prismicio/client" {
 			PressDocument,
 			PressDocumentData,
 			PressDocumentDataSlicesSlice,
+			SettingsDocument,
+			SettingsDocumentData,
 			AllDocumentTypes
 		}
 	}

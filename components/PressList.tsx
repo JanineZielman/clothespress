@@ -1,5 +1,6 @@
 import { createClient } from "@/prismicio";
 import type { PressDocument } from "@/prismicio-types";
+import { PrismicLink } from "@prismicio/react";
 
 interface PressListProps {
   press: PressDocument[];
@@ -18,17 +19,21 @@ export default async function PressList({ press }: PressListProps) {
         </h2>
         <div className="space-y-6">
           {press.map((item) => (
-            <div
-              key={item.id}
-              className="press-item"
-            >
-              <p className=" mb-2">
-                {item.data.title}
-              </p>
-              {item.data.year && (
-                <p>{item.data.year}</p>
-              )}
-            </div>
+            <PrismicLink field={item.data.link} className=" hover:underline">
+              <div
+                key={item.id}
+                className="press-item"
+              >
+
+                <p className=" mb-2">
+                  {item.data.title}
+                </p>
+                {item.data.year && (
+                  <p>{item.data.year}</p>
+                )}
+
+              </div>
+            </PrismicLink>
           ))}
         </div>
       </div>

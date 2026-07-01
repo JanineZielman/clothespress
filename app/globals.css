@@ -98,6 +98,10 @@ h1{
   max-width: 800px;
 }
 
+.button{
+  border-radius: 25px;
+}
+
 .main-logo.center-logo img{
   width: 100%!important;
   height: 100%;
